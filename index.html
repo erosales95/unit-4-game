@@ -4,7 +4,9 @@
 <head>
     <title>Crystal Collector</title>
     <link rel="stylesheet" type="text/css" media="screen" href="" />
-    <script src=""></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -13,46 +15,46 @@
 
     <h3>Instructions for the game blah blah blah blah blah blah blah blah blha blhalbh ahlbha</h3>
 
-    
-    <div id="red-crystal" class="crystals"></div>
-    <div id="blue-crystal" class="crystals"></div>
-    <div id="green-crystal" class="crystals"></div>
-    <div id="yellow-crystal" class="crystals"></div>
 
+    <div>
+        <img src="assets/images/red-gem.png" id="red-crystal" class="crystals" width="150">
+        <img src="assets/images/blue-gem.png" id="blue-crystal" class="crystals" width="150">
+    </div>
+    <div>
+        <img src="assets/images/green-gem.png" id="green-crystal" class="crystals" width="150">
+        <img src="assets/images/yellow-gem.png" id="yellow-crystal" class="crystals" width="150">
+    </div>
 
+    <div></div>
 
 </body>
 
 <script>
 
     $(document).ready(function () {
-        var redCrystal;
-        var blueCrystal;
-        var greenCrystal;
-        var yellowCrystal;
         var targetNumber = Math.floor(Math.random() * 120) + 19;
         var countingNumber = [];
         var userGuess = event.key;
         var wins = 0;
         var losses = 0;
-        
 
-        $("#red-crystal").click(function(){
-            Math.floor(Math.random() * 12) + 1
-            userGuess.push(countingNumber)
-        });
-        
-        $("#blue-crystal").click(function(){
+
+        $("#red-crystal").click(function () {
             Math.floor(Math.random() * 12) + 1
             userGuess.push(countingNumber)
         });
 
-        $("#green-crystal").click(function(){
+        $("#blue-crystal").click(function () {
             Math.floor(Math.random() * 12) + 1
             userGuess.push(countingNumber)
         });
 
-        $("#yellow-crystal").click(function(){
+        $("#green-crystal").click(function () {
+            Math.floor(Math.random() * 12) + 1
+            userGuess.push(countingNumber)
+        });
+
+        $("#yellow-crystal").click(function () {
             Math.floor(Math.random() * 12) + 1
             userGuess.push(countingNumber)
         });
@@ -61,10 +63,13 @@
             targetNumber = Math.floor(Math.random() * 120) + 19;
             countingNumber = [];
             console.log("You win!");
+            
+        }
 
-        } 
+        var html = 
+        "<p>Wins " + wins + "</p>" +
+        "<p>Losses " + losses + "</p>"; 
 
-        
     })
 
 
