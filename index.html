@@ -4,75 +4,100 @@
 <head>
     <title>Crystal Collector</title>
     <link rel="stylesheet" type="text/css" media="screen" href="" />
-    <script src='https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous'></script>
-</head>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 
-<body>
+    <body>
 
-    <h1>Crystal Collector!</h1>
+        <h1>Crystal Collector!</h1>
 
-    <h3>Instructions for the game blah blah blah blah blah blah blah blah blha blhalbh ahlbha</h3>
+        <h3>Instructions for the game blah blah blah blah blah blah blah blah blha blhalbh ahlbha</h3>
+
+        <div id="randomNumber"></div>
+
+        <div>
+            <img src="assets/images/red-gem.png" id="red-crystal" class="crystals" width="150">
+            <img src="assets/images/blue-gem.png" id="blue-crystal" class="crystals" width="150">
+        </div>
+        <div>
+            <img src="assets/images/green-gem.png" id="green-crystal" class="crystals" width="150">
+            <img src="assets/images/yellow-gem.png" id="yellow-crystal" class="crystals" width="150">
+        </div>
+
+        <div id="added-numbers"></div>
+
+    </body>
+
+    <script>
+
+        $(document).ready(function () {
+            var targetNumber = Math.floor(Math.random() * 101) + 19;
+            var countingNumber = 0;
+            var wins = 0;
+            var losses = 0;
+            var redCrystal = Math.floor(Math.random() * 11) + 1;
+            var blueCrystal = Math.floor(Math.random() * 11) + 1;
+            var greenCrystal = Math.floor(Math.random() * 11) + 1;
+            var yellowCrystal = Math.floor(Math.random() * 11) + 1;
 
 
-    <div>
-        <img src="assets/images/red-gem.png" id="red-crystal" class="crystals" width="150">
-        <img src="assets/images/blue-gem.png" id="blue-crystal" class="crystals" width="150">
-    </div>
-    <div>
-        <img src="assets/images/green-gem.png" id="green-crystal" class="crystals" width="150">
-        <img src="assets/images/yellow-gem.png" id="yellow-crystal" class="crystals" width="150">
-    </div>
-
-    <div></div>
-
-</body>
-
-<script>
-
-    $(document).ready(function () {
-        var targetNumber = Math.floor(Math.random() * 120) + 19;
-        var countingNumber = [];
-        var userGuess = event.key;
-        var wins = 0;
-        var losses = 0;
-
-
-        $("#red-crystal").click(function () {
-            Math.floor(Math.random() * 12) + 1
-            userGuess.push(countingNumber)
-        });
-
-        $("#blue-crystal").click(function () {
-            Math.floor(Math.random() * 12) + 1
-            userGuess.push(countingNumber)
-        });
-
-        $("#green-crystal").click(function () {
-            Math.floor(Math.random() * 12) + 1
-            userGuess.push(countingNumber)
-        });
-
-        $("#yellow-crystal").click(function () {
-            Math.floor(Math.random() * 12) + 1
-            userGuess.push(countingNumber)
-        });
-
-        if (userGuess === targetNumber) {
-            targetNumber = Math.floor(Math.random() * 120) + 19;
-            countingNumber = [];
-            console.log("You win!");
+            $("#randomNumber").html(targetNumber);
+            console.log(targetNumber);
             
-        }
 
-        var html = 
-        "<p>Wins " + wins + "</p>" +
-        "<p>Losses " + losses + "</p>"; 
+            $("#red-crystal").click(function () {
+                countingNumber = countingNumber + redCrystal;
+                $("#added-numbers").text(countingNumber);
+                console.log(countingNumber);
 
-    })
+            });
+
+            $("#blue-crystal").click(function () {
+                countingNumber = countingNumber + blueCrystal;
+                $("#added-numbers").text(countingNumber);
+
+                console.log(countingNumber);
+
+            });
 
 
-</script>
+            $("#green-crystal").click(function () {
+                countingNumber = countingNumber + greenCrystal;
+                $("#added-numbers").text(countingNumber);
+
+                console.log(countingNumber);
+
+            });
+
+
+            $("#yellow-crystal").click(function () {
+                countingNumber = countingNumber + yellowCrystal;
+                $("#added-numbers").text(countingNumber);
+
+                console.log(countingNumber);
+
+            });
+
+            
+
+
+
+            //psudocoding
+
+            //generate random number between 19 and 120
+            //create an on.click function for each image and give it a random number
+            //make the random numbers add to each other after every click 
+            //make the added number show up on the screen live
+            //if the added number is greater than the randomly generated number, then add 1 loss to the counter and reset game
+            //if the added number equals the randomly generated number, then add 1 win to the counter and reset game
+
+            //maybe try to make the crystals numbers not to equal each other?
+
+
+
+
+        });
+
+
+    </script>
 
 </html>
