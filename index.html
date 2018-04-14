@@ -3,18 +3,37 @@
 
 <head>
     <title>Crystal Collector</title>
-    <link rel="stylesheet" type="text/css" media="screen" href="" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="assets/javascript/game.js"></script>
 
     <body>
 
         <h1>Crystal Collector!</h1>
 
-        <h3>Instructions for the game blah blah blah blah blah blah blah blah blha blhalbh ahlbha</h3>
+        <ul>
+            <li>You will be given a random number from the start of the game.</li>
+            <li>There are four different colored crystals below. By clicking a crystal, you will add a specific amount of points
+                to your total score. </li>
+            <li>You win the game by successfully added up your total score to the given random number.</li>
+            <li>The value of the crystal is hidden until you click on it.</li>
+            <li>Each time the game starts, the game will change the values of each crystal. </li>
+            <li>Good luck!</li>
+        </ul>
 
-        <div>The number to add up to is:
+        <div id="rand-num">The number to add up to is:
             <span id="randomNumber"></span>
         </div>
+
+        <div class="wins-loss">
+                <div>Wins:
+                    <span id="win-count"></span>
+                </div>
+                <div>Losses:
+                    <span id="loss-count"></span>
+                </div>
+            </div>
+    
 
         <div>
             <img src="assets/images/red-gem.png" id="red-crystal" class="crystals" width="150">
@@ -25,13 +44,7 @@
             <img src="assets/images/yellow-gem.png" id="yellow-crystal" class="crystals" width="150">
         </div>
 
-        <div>Wins:
-            <span id="win-count"></span>
-        </div>
-        <div>Losses:
-            <span id="loss-count"></span>
-        </div>
-        <div>Your total so far:
+        <div id="total-score">Your total score is:
             <span id="added-numbers"></span>
         </div>
 
@@ -39,125 +52,6 @@
 
     <script>
 
-        $(document).ready(function () {
-            var targetNumber = Math.floor(Math.random() * 101) + 19;
-            var countingNumber = 0;
-            var wins = 0;
-            var losses = 0;
-            var redCrystal = Math.floor(Math.random() * 11) + 1;
-            var blueCrystal = Math.floor(Math.random() * 11) + 1;
-            var greenCrystal = Math.floor(Math.random() * 11) + 1;
-            var yellowCrystal = Math.floor(Math.random() * 11) + 1;
-
-            $("#randomNumber").html(targetNumber);
-            $("#added-numbers").html(countingNumber);
-            $("#win-count").html(wins);
-            $("#loss-count").html(losses);
-
-            console.log(wins);
-            console.log(losses);
-
-
-            function reset() {
-                targetNumber = Math.floor(Math.random() * 101) + 19;
-                countingNumber = 0;
-                redCrystal = Math.floor(Math.random() * 11) + 1;
-                blueCrystal = Math.floor(Math.random() * 11) + 1;
-                greenCrystal = Math.floor(Math.random() * 11) + 1;
-                yellowCrystal = Math.floor(Math.random() * 11) + 1;
-                $("#randomNumber").html(targetNumber);
-                $("#added-numbers").html(countingNumber);
-            };
-
-            function winner() {
-                wins++;
-                $("#win-count").html(wins);
-                reset();
-
-            }
-
-            function loser() {
-                losses++;
-                $("#loss-count").html(losses);
-                reset();
-
-            }
-
-
-            $("#red-crystal").click(function () {
-                countingNumber = countingNumber + redCrystal;
-                $("#added-numbers").html(countingNumber);
-                if (countingNumber === targetNumber) {
-                    winner();
-                } else if (countingNumber > targetNumber) {
-                    loser();
-                }
-                //console.log(countingNumber);
-
-            });
-
-            $("#blue-crystal").click(function () {
-                countingNumber = countingNumber + blueCrystal;
-                $("#added-numbers").html(countingNumber);
-                if (countingNumber === targetNumber) {
-                    winner();
-                } else if (countingNumber > targetNumber) {
-                    loser();
-                }
-
-                //console.log(countingNumber);
-
-            });
-
-
-            $("#green-crystal").click(function () {
-                countingNumber = countingNumber + greenCrystal;
-                $("#added-numbers").html(countingNumber);
-                if (countingNumber === targetNumber) {
-                    winner();
-                } else if (countingNumber > targetNumber) {
-                    loser();
-                }
-
-                ///console.log(countingNumber);
-
-            });
-
-
-            $("#yellow-crystal").click(function () {
-                countingNumber = countingNumber + yellowCrystal;
-                $("#added-numbers").html(countingNumber);
-                if (countingNumber === targetNumber) {
-                    winner();
-                } else if (countingNumber > targetNumber) {
-                    loser();
-                }
-
-                //console.log(countingNumber);
-
-            });
-
-
-
-
-
-
-
-            //psudocoding
-
-            //generate random number between 19 and 120
-            //create an on.click function for each image and give it a random number
-            //make the random numbers add to each other after every click 
-            //make the added number show up on the screen live
-            //if the added number is greater than the randomly generated number, then add 1 loss to the counter and reset game
-            //if the added number equals the randomly generated number, then add 1 win to the counter and reset game
-
-            //maybe try to make the crystals numbers not to equal each other?
-
-
-
-
-        });
 
 
     </script>
