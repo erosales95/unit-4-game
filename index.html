@@ -12,7 +12,9 @@
 
         <h3>Instructions for the game blah blah blah blah blah blah blah blah blha blhalbh ahlbha</h3>
 
-        <div id="randomNumber"></div>
+        <div>The number to add up to is:
+            <span id="randomNumber"></span>
+        </div>
 
         <div>
             <img src="assets/images/red-gem.png" id="red-crystal" class="crystals" width="150">
@@ -23,7 +25,15 @@
             <img src="assets/images/yellow-gem.png" id="yellow-crystal" class="crystals" width="150">
         </div>
 
-        <div id="added-numbers"></div>
+        <div>Wins:
+            <span id="win-count"></span>
+        </div>
+        <div>Losses:
+            <span id="loss-count"></span>
+        </div>
+        <div>Your total so far:
+            <span id="added-numbers"></span>
+        </div>
 
     </body>
 
@@ -39,45 +49,97 @@
             var greenCrystal = Math.floor(Math.random() * 11) + 1;
             var yellowCrystal = Math.floor(Math.random() * 11) + 1;
 
-
             $("#randomNumber").html(targetNumber);
-            console.log(targetNumber);
-            
+            $("#added-numbers").html(countingNumber);
+            $("#win-count").html(wins);
+            $("#loss-count").html(losses);
+
+            console.log(wins);
+            console.log(losses);
+
+
+            function reset() {
+                targetNumber = Math.floor(Math.random() * 101) + 19;
+                countingNumber = 0;
+                redCrystal = Math.floor(Math.random() * 11) + 1;
+                blueCrystal = Math.floor(Math.random() * 11) + 1;
+                greenCrystal = Math.floor(Math.random() * 11) + 1;
+                yellowCrystal = Math.floor(Math.random() * 11) + 1;
+                $("#randomNumber").html(targetNumber);
+                $("#added-numbers").html(countingNumber);
+            };
+
+            function winner() {
+                wins++;
+                $("#win-count").html(wins);
+                reset();
+
+            }
+
+            function loser() {
+                losses++;
+                $("#loss-count").html(losses);
+                reset();
+
+            }
+
 
             $("#red-crystal").click(function () {
                 countingNumber = countingNumber + redCrystal;
-                $("#added-numbers").text(countingNumber);
-                console.log(countingNumber);
+                $("#added-numbers").html(countingNumber);
+                if (countingNumber === targetNumber) {
+                    winner();
+                } else if (countingNumber > targetNumber) {
+                    loser();
+                }
+                //console.log(countingNumber);
 
             });
 
             $("#blue-crystal").click(function () {
                 countingNumber = countingNumber + blueCrystal;
-                $("#added-numbers").text(countingNumber);
+                $("#added-numbers").html(countingNumber);
+                if (countingNumber === targetNumber) {
+                    winner();
+                } else if (countingNumber > targetNumber) {
+                    loser();
+                }
 
-                console.log(countingNumber);
+                //console.log(countingNumber);
 
             });
 
 
             $("#green-crystal").click(function () {
                 countingNumber = countingNumber + greenCrystal;
-                $("#added-numbers").text(countingNumber);
+                $("#added-numbers").html(countingNumber);
+                if (countingNumber === targetNumber) {
+                    winner();
+                } else if (countingNumber > targetNumber) {
+                    loser();
+                }
 
-                console.log(countingNumber);
+                ///console.log(countingNumber);
 
             });
 
 
             $("#yellow-crystal").click(function () {
                 countingNumber = countingNumber + yellowCrystal;
-                $("#added-numbers").text(countingNumber);
+                $("#added-numbers").html(countingNumber);
+                if (countingNumber === targetNumber) {
+                    winner();
+                } else if (countingNumber > targetNumber) {
+                    loser();
+                }
 
-                console.log(countingNumber);
+                //console.log(countingNumber);
 
             });
 
-            
+
+
+
 
 
 
